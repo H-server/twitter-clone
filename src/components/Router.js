@@ -7,14 +7,14 @@ import Auth from "../routes/Auth";
 import EditProfile from "../routes/EditProfile";
 import Home from "../routes/Home";
 import Profile from "../routes/Profile";
+import App from "./App";
 
 
-const useRouter = () => {
-    const [isLoggenIn, setIsLoggenIn] = useState(false);
+const Router = ({ isLoggedIn }) => {
     const router = createBrowserRouter([
         {
           path: "/",
-          element: isLoggenIn ? <Home /> : <Auth />,
+          element: isLoggedIn ? <Home /> : <Auth />,
         },
         {
           path: "/edit-profile",
@@ -25,13 +25,10 @@ const useRouter = () => {
           element: <Profile />,
         },
     ]);
-    return router;
-}
 
-const Router = () => {
-    const router = useRouter()
     return(
         <RouterProvider router={router} />
     )
 }
+
 export default Router;
