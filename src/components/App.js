@@ -1,14 +1,15 @@
 import Router from "./Router";
 import { useState } from "react";
-import { authService } from "../fbase";
+import { authService } from '../fbase';
 
 function App() {
+  console.log(authService.currentUser);
   const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
   return (
-    <>
-  <Router isLoggedIn={isLoggedIn} />
-  <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
-  </>
+    <>  
+    <Router isLoggedIn={isLoggedIn} />
+    <footer>&copy; {new Date().getFullYear()} Twitter</footer>
+    </>
   );
 }
 
