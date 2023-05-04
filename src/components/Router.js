@@ -8,12 +8,12 @@ import App from "./App";
 import Navigation from "./Navigation";
 
 
-const Router = ({ isLoggedIn }) => {
+const Router = ({ isLoggedIn, userObj }) => {
   return(
     <>
     {isLoggedIn && <Navigation />}
       <Routes>
-        <Route path="/" element={isLoggedIn ? <Home /> : <Auth />} />
+        <Route path="/" element={isLoggedIn ? <Home userObj={userObj} /> : <Auth />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
